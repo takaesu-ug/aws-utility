@@ -1,0 +1,12 @@
+module CommonSettings
+  ACCESS_KEY = ''
+  SECRET_KEY = ''
+  HOSTNAME   = `hostname`.chop
+
+  module GMailer
+    USER_NAME = ''
+    PASSWORD  = ''
+    TO        = ''
+    FROM      = ''
+  end
+end
