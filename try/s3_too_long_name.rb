@@ -7,12 +7,13 @@
 
 require 'tempfile'
 
+bucket_name = 'sample-takapra'
 under = 'a' * 1023
 just  = 'b' * 1024
 over  = 'c' * 1025
 
-Tempfile.create("foo") do |f|
-  puts `aws s3 cp #{f.path} s3://sample-takapra/#{under}`
-  puts `aws s3 cp #{f.path} s3://sample-takapra/#{just}`
-  puts `aws s3 cp #{f.path} s3://sample-takapra/#{over}`  # エラーになる
+Tempfile.create do |f|
+  puts `aws s3 cp #{f.path} s3://#{bucket_name}/#{under}`
+  puts `aws s3 cp #{f.path} s3://#{bucket_name}/#{just}`
+  puts `aws s3 cp #{f.path} s3://#{bucket_name}/#{over}`  # エラーになる
 end
